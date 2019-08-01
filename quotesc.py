@@ -90,8 +90,7 @@ if __name__ == "__main__":
     inp = get_input(args)
     out = open(args.outf, "w") if args.outf else sys.stdout
     if args.resetl:
-        lines = inp.splitlines()
-        for l in lines:
+        for l in inp.splitlines():
             print(escape(l, args.quote, args.lvl), file=out)
     else:
         print(escape(inp, args.quote, args.lvl), file=out)
