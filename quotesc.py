@@ -69,11 +69,9 @@ def escape(inp, quote="\"", lvl=0):
     Performs escaping and returns the output string. 
     """
     ite = list(re.finditer("\\\\*" + quote, inp))
-    if not ite:
-        return inp
-
     mid = len(ite) // 2
     odd = len(ite) % 2 != 0
+
     for i in range(len(ite) - 1, -1, -1):
         start, end = ite[i].start(), ite[i].end()
         inp = inp[:start] + get_esc_str(lvl, quote) + inp[end:]
